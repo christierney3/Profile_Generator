@@ -59,7 +59,7 @@ function addIntern(intern) {
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">ID: ${intern.getId()}</li>
                         <li class="list-group-item">Email:<a href="mailto: ${intern.getEmail()}"> ${intern.getEmail()}</a></li>
-                        <li class="list-group-item">School: ${intern.school}</li>
+                        <li class="list-group-item">School: ${intern.getSchool()}</li>
                     </ul>
                 </div>
             </div>`
