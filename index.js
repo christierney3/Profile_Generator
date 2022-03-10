@@ -5,15 +5,14 @@ const Intern = require('./lib/intern');
 const Engineer = require('./lib/engineer');
 const inquirer = require('inquirer');
 const fs = require('fs');
-
+// create object for responses per employee
 let teamObj = {
     manager: '',
     interns: [],
     engineers: [],
 }
-
+// create functions that asks and saves responses to object
 function managerQuestions() {
-    let employee = new Employee
     console.log('Build your team.');
     return inquirer.prompt ([
         {
@@ -38,7 +37,7 @@ function managerQuestions() {
             type: 'input',
             message: "What is the team manager's office #?",
             name: 'office',
-            default: '16'
+            default: '3'
         }
     ])
     .then(managerAnswers => {
@@ -55,32 +54,26 @@ function engineerQuestions() {
             type: 'input',
             message: "What is the engineer's name?",
             name: 'name',
-            default: 'John'
+            default: 'Chris'
         },
         {
             type: 'input',
             message: "What is the engineer's id #?",
             name: 'id',
-            default: '4'
+            default: '16'
         },
         {
             type: 'input',
             message: "What is the engineer's email?",
             name: 'email',
-            default: 'john@john.com'
+            default: 'chris.tierney3@gmail.com'
         },
         {
             type: 'input',
             message: "What is the engineer's github username?",
             name: 'github',
-            default: 'john@github.com',
-        },
-        {
-            type: 'confirm',
-            message: "Would you like to add any more members to your team?",
-            name: 'addMember',
-            default: false
-        }
+            default: 'christierney3',
+        },        
     ])
     .then(engineerAnswers => {
         const { name, id, email, github} = engineerAnswers;
@@ -113,16 +106,16 @@ function internQuestions() {
             type: 'input',
             message: "Where does your intern go to school?",
             name: 'school',
-            default: 'CU',
+            default: 'CU Boulder',
         },
     ])
     .then(internAnswers => {
-        const { name, id, email, github} = internAnswers;
-        teamObj.interns.push(Intern(name, id, email, github));
+        const { name, id, email, school} = internAnswers;
+        teamObj.interns.push(new Intern(name, id, email, school));
         employeeChoice();
     })
 };
-
+// create function to determine which questions are asked based on input
 function employeeChoice() {
     inquirer.prompt([
         {
@@ -144,7 +137,7 @@ function employeeChoice() {
     })
 }
 
-
+// Function to write the html page using our renderTeam function and our teamObj together
 function writeToFile() {
     fs.writeFile('./dist/index.html', renderTeam(teamObj), function(err) {
         if(err) {
@@ -156,5 +149,5 @@ function writeToFile() {
 function init() {
     managerQuestions()      
 };
-
+//Run the app
 init();
