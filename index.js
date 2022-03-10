@@ -46,9 +46,6 @@ function managerQuestions() {
         teamObj.manager = new Manager(name, id, email, office);
         employeeChoice();
     })
-        // const { name, id, email, office } = managerAnswers;
-        // 
-
 
 };
 
@@ -147,20 +144,6 @@ function employeeChoice() {
     })
 }
 
-// function addIntern() {
-//     let intern = new Intern
-//         .then((answers) => {
-//             intern.name = answers.name;
-//             intern.id = answers.id;
-//             intern.email = answers.email;
-//             intern.school = answers.school;
-//             generateHtml.teamCards(intern);
-//         })
-// };
-
-// function addEngineer() {
-
-// };
 
 function writeToFile() {
     fs.writeFile('./dist/index.html', renderTeam(teamObj), function(err) {
@@ -175,66 +158,3 @@ function init() {
 };
 
 init();
-//     .then(employeeAnswers => {
-
-//         let { name, id, email, github, school, addMember, role } = employeeAnswers;
-
-//         if (role === 'Engineer') {
-//         newEmployee = new Employee(name, id, email, github);
-//         } else if (role === 'Intern') {
-//         newEmployee = new Employee(name, id, email, school);
-//         }
-
-//         team.push(newEmployee);
-
-//         if (addMember === true) {
-//             return addEmployee();
-//         } return team;
-//     })
-// };
-
-// function writeToFile(data) {
-//     fs.writeFile('./dist/index.html', generateHtml(data), function (err) {
-//         err ? console.log(err) : console.log('Profile successfully generated!')
-//     });
-// };
-
-// addManager()
-//     .then(addEmployee)
-//     .then(writeToFile)
-// let {name, id, email, role, github, school} = employeeAnswers;
-//     if (role === 'Engineer') {
-//         let engineer = new Engineer(name, id, email, github)
-//             .then((employeeAnswers) => {
-//                 engineer.name = employeeAnswers.name;
-//                 engineer.id = employeeAnswers.id;
-//                 engineer.email = employeeAnswers.email;
-//                 engineer.github = employeeAnswers.github;
-//                 generateHtml.teamCards(engineer);
-//         })
-//     } else if (role === 'Intern') {
-//         let intern = new Intern(name, id, email, school)
-//             name = employeeAnswers.name;
-//             id = employeeAnswers.id;
-//             email = employeeAnswers.email;
-//             school = employeeAnswers.school;
-//         generateHtml.teamCards(intern);
-//     } else {
-//         generateHtml.generateHtml();
-//     }
-        // .then(employeeQuestions)
-        //     .then((answers) => {
-        //         intern.name = answers.name;
-        //         intern.id = answers.id;
-        //         intern.email = answers.email;
-        //         intern.school = answers.school;
-        //         generateHtml.teamCards(intern);
-        //     })
-
-        //         .then((answers) => {
-        //     manager.name = answers.name;
-        //     manager.id = answers.id;
-        //     manager.email = answers.email;
-        //     manager.office = answers.office;
-        //     generateHtml.teamCards(manager);
-        // })
