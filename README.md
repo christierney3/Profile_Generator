@@ -49,3 +49,6 @@ npm test
 
 ## Questions:
 If you have any questions please contact me at chris.tierney3@gmail.com or https://github.com/christierney3
+
+## Youtube Instructional link:
+https://youtu.be/cjMBaPkHlNw
